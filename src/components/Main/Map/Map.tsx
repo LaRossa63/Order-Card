@@ -23,6 +23,6 @@ export const Map = () => {
 const MapContainerStyled = styled(MapContainer)`
   &.leaflet-container {
     width: 50vw;
-    height: 90vh;
+    height: 70vh;
   }
 `;
