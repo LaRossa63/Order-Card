@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { LatLngExpression, LatLngTuple } from 'leaflet';
 import { IOrders } from 'types';
 
 const initialState = {
-  startCoord: [59.846, 30.294],
+  startCoord: [59.846, 30.294] as LatLngExpression,
 
   orderList: [
     {
@@ -42,8 +43,8 @@ const initialState = {
     },
   ],
 
-  startingPoint: [59.84660399, 30.29496392],
-  endPoint: [59.82934196, 30.42423701],
+  startingPoint: [59.84660399, 30.29496392] as LatLngTuple,
+  endPoint: [59.82934196, 30.42423701] as LatLngTuple,
 };
 
 const Orders = createSlice({
