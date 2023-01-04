@@ -1,12 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-
-export interface IOrders {
-  key: string;
-  startLat: number;
-  endLat: number;
-  startIng: number;
-  endIng: number;
-}
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { IOrders } from 'types';
 
 const initialState = {
   startCoord: [59.846, 30.294],
@@ -57,7 +50,15 @@ const Orders = createSlice({
   name: 'orders',
   initialState,
 
-  reducers: {},
+  reducers: {
+    handleChangeSelectionOrder(state, action: PayloadAction<IOrders[]>) {
+      const order = action.payload[0];
+
+      state.startingPoint = [order.startLat, order.startIng];
+      state.endPoint = [order.endLat, order.endIng];
+    },
+  },
 });
 
+export const { handleChangeSelectionOrder } = Orders.actions;
 export const OrdersReducer = Orders.reducer;
